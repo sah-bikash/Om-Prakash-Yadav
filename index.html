@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Dr. Om Prakash Yadav </title>
-  <!-- Google Fonts + Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>Dr. Om Prakash Yadav | Compassionate Care</title>
+  <!-- Google Fonts + Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -16,69 +16,81 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f4f9ff;
-      color: #1a2c3e;
+      background: #f4f9fe;
+      color: #1a2e3f;
       line-height: 1.5;
       scroll-behavior: smooth;
     }
 
-    /* medical palette: soft white, clinical blues, gentle green accents */
+    /* Medical color palette */
     :root {
       --primary: #0b5e7e;
       --primary-dark: #084c66;
       --secondary: #2c9b77;
       --light-bg: #eef5fa;
-      --card-shadow: 0 20px 35px -12px rgba(0, 32, 64, 0.08);
-      --accent: #2c9b77;
+      --card-shadow: 0 20px 30px -12px rgba(0, 32, 64, 0.08);
+    }
+
+    /* CRITICAL FIX: Prevent content from hiding under sticky navbar */
+    section {
+      scroll-margin-top: 100px;  /* robust offset for all devices */
+    }
+    @media (max-width: 768px) {
+      section {
+        scroll-margin-top: 115px;
+      }
+    }
+    @media (max-width: 480px) {
+      section {
+        scroll-margin-top: 130px;
+      }
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
     }
 
-    /* ===== FIXED NAVBAR (solid white bg, better visibility) ===== */
+    /* ----- FULLY RESPONSIVE NAVBAR (sticky) ----- */
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-      background: #ffffff;  /* solid white background */
+      background: #ffffff;
       border-bottom: 1px solid #e2edf2;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
       position: sticky;
       top: 0;
       z-index: 100;
       width: 100%;
+      padding: 0.9rem 1.5rem;
     }
-    /* container inside navbar to align with global content */
-    .navbar .container {
-      padding: 0;
-      width: 100%;
+    .nav-flex {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       flex-wrap: wrap;
       gap: 1rem;
+      max-width: 1280px;
+      margin: 0 auto;
     }
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: var(--primary);
+      cursor: pointer;
+      line-height: 1.2;
     }
     .logo span {
       font-weight: 400;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--secondary);
       display: block;
     }
     .nav-links {
       display: flex;
-      gap: 2rem;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      align-items: center;
     }
     .nav-links a {
       text-decoration: none;
@@ -87,73 +99,79 @@
       transition: 0.2s;
       border-bottom: 2px solid transparent;
       padding-bottom: 4px;
+      font-size: 1rem;
     }
     .nav-links a:hover, .nav-links a.active {
       color: var(--primary);
       border-bottom-color: var(--primary);
     }
 
-    /* buttons */
+    /* Buttons */
     .btn-primary {
       background: var(--primary);
       color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
+      padding: 0.8rem 1.9rem;
+      border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       transition: 0.25s;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      font-size: 0.95rem;
     }
     .btn-primary:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 10px 18px rgba(11,94,126,0.2);
+      box-shadow: 0 10px 20px rgba(11, 94, 126, 0.2);
     }
     .btn-outline {
       border: 1.5px solid var(--primary);
       background: transparent;
-      padding: 0.7rem 1.8rem;
-      border-radius: 40px;
+      padding: 0.7rem 1.7rem;
+      border-radius: 50px;
       font-weight: 500;
       color: var(--primary);
       text-decoration: none;
       transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     .btn-outline:hover {
       background: var(--primary);
       color: white;
     }
 
-    /* hero section */
+    /* Hero Section */
     .hero {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
-      padding: 3rem 0 2rem;
+      padding: 2rem 0 2rem;
     }
     .hero-content {
       flex: 1.2;
+      min-width: 260px;
     }
     .hero-badge {
       background: #e1f0f7;
       display: inline-block;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
       color: var(--primary);
-      font-weight: 500;
+      font-weight: 600;
       font-size: 0.8rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
+      font-size: 3rem;
       font-weight: 700;
       color: #0b3b4f;
       line-height: 1.2;
@@ -161,42 +179,64 @@
     .hero-title {
       font-size: 1.2rem;
       color: var(--secondary);
-      margin: 1rem 0 0.5rem;
+      margin: 1rem 0 0.8rem;
       font-weight: 500;
     }
     .hero-desc {
       margin: 1rem 0 1.5rem;
       color: #2c4b60;
-      max-width: 500px;
+      max-width: 550px;
     }
     .hero-image {
       flex: 0.8;
-      background: linear-gradient(145deg, #cbe5f0, #ffffff);
-      border-radius: 40px;
-      padding: 1rem;
+      background: linear-gradient(135deg, #d9eef7, #ffffff);
+      border-radius: 2.5rem;
+      padding: 1.8rem;
       text-align: center;
       box-shadow: var(--card-shadow);
+      min-width: 220px;
     }
-    .hero-image i {
-      font-size: 8rem;
+    .hero-avatar {
+      width: 170px;
+      height: 170px;
+      background: #cbe5f0;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 12px 18px rgba(0,0,0,0.05);
+    }
+    .hero-avatar i {
+      font-size: 5.5rem;
       color: var(--primary);
-      opacity: 0.8;
     }
     .stat-grid {
       display: flex;
-      gap: 1.5rem;
-      margin-top: 2rem;
       flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.8rem;
     }
     .stat-card {
       background: white;
-      padding: 0.8rem 1.3rem;
-      border-radius: 60px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      border: 1px solid rgba(11,94,126,0.2);
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+      border: 1px solid rgba(11,94,126,0.15);
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hero-buttons {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    /* section style */
+    /* section titles */
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
@@ -204,50 +244,51 @@
       color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.7rem;
     }
     .section-title i {
       color: var(--secondary);
       font-size: 1.8rem;
     }
 
-    /* cards */
-    .services-grid, .testimonials-grid {
+    /* Services grid */
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
       margin: 2rem 0;
     }
-    .service-card, .testimonial-card {
+    .service-card {
       background: white;
       border-radius: 28px;
       padding: 1.8rem;
-      transition: all 0.2s;
+      transition: all 0.25s;
       box-shadow: var(--card-shadow);
-      border: 1px solid rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.03);
     }
     .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 30px 35px -15px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
       border-color: var(--secondary);
+      box-shadow: 0 25px 30px -12px rgba(0,0,0,0.12);
     }
     .service-icon {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       color: var(--secondary);
       margin-bottom: 1rem;
     }
     .service-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.8rem;
+      font-size: 1.35rem;
+      margin-bottom: 0.7rem;
       color: var(--primary);
     }
 
-    /* about + education double column */
+    /* two column about - improved vertical alignment (un and down balanced) */
     .two-col {
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       margin: 1rem 0 2rem;
+      align-items: stretch;
     }
     .info-card {
       flex: 1;
@@ -255,13 +296,18 @@
       border-radius: 28px;
       padding: 1.8rem;
       box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
     }
     .info-card h3 {
       color: var(--primary);
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.5rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
+      border-left: 4px solid var(--secondary);
+      padding-left: 0.8rem;
     }
     .timeline-item {
       margin-bottom: 1.2rem;
@@ -271,8 +317,35 @@
     .timeline-year {
       font-weight: 700;
       color: var(--primary);
+      font-size: 1rem;
     }
-    /* contact section - improved Schedule a Visit */
+    .edu-degree {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-top: 0.8rem;
+      font-size: 1rem;
+    }
+    .exp-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 0.5rem;
+    }
+
+    /* testimonials grid */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem;
+      box-shadow: var(--card-shadow);
+    }
+
+    /* ========= CONTACT SECTION - IMPROVED ALIGNMENT & SPACING ========= */
     .contact-section {
       background: white;
       border-radius: 2rem;
@@ -281,22 +354,64 @@
       box-shadow: var(--card-shadow);
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
+      gap: 2.5rem;
     }
     .contact-details {
-      flex: 1;
+      flex: 1.2;
+      min-width: 260px;
     }
-    .contact-details p {
-      margin: 1rem 0;
+    .contact-details h3 {
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      font-size: 1.5rem;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.7rem;
     }
-    .contact-details i {
-      width: 30px;
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .contact-info-item i {
+      width: 28px;
+      font-size: 1.25rem;
       color: var(--secondary);
-      font-size: 1.3rem;
+      margin-top: 0.2rem;
+    }
+    .contact-info-item .contact-text {
+      flex: 1;
+      color: #2c4b60;
+      word-break: break-word;
+    }
+    .social-icons {
+      display: flex;
+      gap: 1.5rem;
+      margin: 1.5rem 0 1rem;
+    }
+    .social-icons a {
+      color: var(--primary);
+      font-size: 1.6rem;
+      transition: 0.2s;
+    }
+    .social-icons a:hover {
+      color: var(--secondary);
+      transform: scale(1.05);
+    }
+    .suggestion-note {
+      background: #eef2f7;
+      padding: 0.7rem 1rem;
+      border-radius: 60px;
+      margin: 0.8rem 0 0;
+      font-size: 0.85rem;
+      color: #2c5a72;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      width: 100%;
     }
     .appointment {
       flex: 1;
@@ -304,47 +419,50 @@
       padding: 1.8rem;
       border-radius: 28px;
     }
+    .appointment h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
     .appointment input, .appointment textarea {
       width: 100%;
-      padding: 0.8rem;
+      padding: 0.85rem 1rem;
       margin: 0.6rem 0;
-      border: 1px solid #cbdbe0;
-      border-radius: 28px;
+      border: 1px solid #cfdfe8;
+      border-radius: 50px;
       font-family: inherit;
       transition: 0.2s;
+      background: white;
+    }
+    .appointment textarea {
+      border-radius: 24px;
+      resize: vertical;
     }
     .appointment input:focus, .appointment textarea:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 0 2px rgba(11,94,126,0.2);
+      box-shadow: 0 0 0 3px rgba(11,94,126,0.15);
     }
-    .suggestion-note {
-      background: #eef2f7;
-      padding: 0.7rem;
-      border-radius: 20px;
-      margin: 0.8rem 0 0;
-      font-size: 0.8rem;
-      color: #2c5a72;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       background: #e1edf5;
       margin-top: 3rem;
-      color: #2c5a72;
       border-radius: 2rem 2rem 0 0;
+      color: #2c5a72;
     }
-    /* ----- modern toast notification (bottom) ----- */
+
+    /* Toast message */
     #toast-message {
       visibility: hidden;
-      min-width: 280px;
+      min-width: 260px;
       background-color: #0b5e7e;
       color: #fff;
       text-align: center;
-      border-radius: 50px;
+      border-radius: 60px;
       padding: 12px 24px;
       position: fixed;
       bottom: 30px;
@@ -352,71 +470,166 @@
       transform: translateX(-50%);
       font-size: 0.9rem;
       font-weight: 500;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      z-index: 1000;
+      z-index: 1100;
       opacity: 0;
-      transition: opacity 0.3s, visibility 0.3s;
-      backdrop-filter: blur(4px);
-      background: rgba(11,94,126,0.95);
-      border: 1px solid rgba(255,255,255,0.2);
-      font-family: 'Inter', sans-serif;
+      transition: opacity 0.25s, visibility 0.25s;
+      backdrop-filter: blur(6px);
+      background: rgba(11, 94, 126, 0.96);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
+      pointer-events: none;
     }
     #toast-message.show {
       visibility: visible;
       opacity: 1;
     }
-    @media (max-width: 750px) {
-      .container { padding: 0 1.2rem; }
-      .hero h1 { font-size: 2.3rem; }
-      .navbar { padding: 0.8rem 1.2rem; }
-      .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
-      .navbar .container { flex-direction: column; align-items: center; }
-    }
-
-    /* Back to Top Button - Medical Theme */
     .back-to-top {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
+      bottom: 28px;
+      right: 28px;
       background: var(--primary);
       color: white;
       border: none;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 1.3rem;
+      width: 48px;
+      height: 48px;
+      font-size: 1.2rem;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.2s;
       opacity: 0;
       visibility: hidden;
       z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .back-to-top:hover {
-      background: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 18px rgba(11,94,126,0.3);
     }
     .back-to-top.show {
       opacity: 1;
       visibility: visible;
     }
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
 
+    /* Responsive refinements */
+    @media (max-width: 850px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .hero-image {
+        flex: 1;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .stat-grid {
+        justify-content: center;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .section-title {
+        font-size: 1.8rem;
+        justify-content: center;
+      }
+      .navbar {
+        padding: 0.8rem 1rem;
+      }
+      .nav-flex {
+        flex-direction: column;
+        align-items: center;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      .logo {
+        text-align: center;
+      }
+      .contact-section {
+        flex-direction: column;
+        gap: 1.8rem;
+      }
+      .contact-details, .appointment {
+        width: 100%;
+      }
+      .contact-info-item {
+        flex-wrap: nowrap;
+      }
+    }
+    @media (max-width: 550px) {
+      .hero-buttons .btn-primary, .hero-buttons .btn-outline {
+        width: 100%;
+        justify-content: center;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      .stat-card {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+      }
+      .service-card, .testimonial-card, .info-card {
+        padding: 1.4rem;
+      }
+      .contact-section {
+        padding: 1.4rem;
+      }
+      .appointment {
+        padding: 1.4rem;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+      .hero-avatar {
+        width: 130px;
+        height: 130px;
+      }
+      .hero-avatar i {
+        font-size: 4rem;
+      }
+      .contact-info-item {
+        gap: 0.8rem;
+      }
+      .contact-info-item i {
+        width: 24px;
+      }
+    }
+    @media (max-width: 380px) {
+      .nav-links {
+        gap: 0.9rem;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        font-size: 0.85rem;
+      }
+      .logo {
+        font-size: 1.3rem;
+      }
+      section {
+        scroll-margin-top: 140px;
+      }
+    }
   </style>
   <link rel="icon" type="image/gif" href="favicon.png">
 </head>
 <body>
-<!-- fixed navbar with solid background -->
+
+<!-- Sticky Navbar -->
 <div class="navbar">
-  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
-    <div class="logo" id="homeLogo" style="cursor: pointer;">Dr. Om Prakash Yadav <span>MBBS</span></div>
+  <div class="nav-flex">
+    <div class="logo" id="homeLogo">
+      Dr. Om Prakash Yadav <span>MBBS</span>
+    </div>
     <div class="nav-links">
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
@@ -427,36 +640,36 @@
   </div>
 </div>
 
-<div class="container">
+<main class="container">
   <!-- Hero Section -->
   <section id="home">
     <div class="hero">
       <div class="hero-content">
-        <div class="hero-badge"><i class="fas fa-stethoscope"></i>  Trusted Physician • 2+ Years Experience</div>
+        <div class="hero-badge"><i class="fas fa-stethoscope"></i> Trusted Physician · 2+ Years Experience</div>
         <h1>Compassionate Care,<br>Evidence-Based Healing</h1>
         <div class="hero-title">Dr. Om Prakash Yadav — MBBS</div>
         <div class="hero-desc">
-          Dedicated to providing holistic and patient-centric medical care. Specializing in preventive healthcare, chronic disease management, and advanced diagnostics.
+          Dedicated to holistic, patient-centric medical care. Specializing in preventive healthcare, chronic disease management, and evidence-based treatments.
         </div>
         <div class="stat-grid">
           <div class="stat-card"><i class="fas fa-smile"></i> 500+ Happy Patients</div>
-          <div class="stat-card"><i class="fas fa-calendar-check"></i> 5+ Clinical Research</div>
-          <div class="stat-card"><i class="fas fa-hospital-user"></i> Top Rated Physician</div>
+          <div class="stat-card"><i class="fas fa-flask"></i> 5+ Clinical Research</div>
+          <div class="stat-card"><i class="fas fa-star"></i> Top Rated Physician</div>
         </div>
-        <div style="margin-top: 2rem;">
+        <div class="hero-buttons">
           <a href="#contact" class="btn-primary"><i class="fas fa-calendar-plus"></i> Book Appointment</a>
-          <a href="#services" class="btn-outline" style="margin-left: 1rem;">Explore Services</a>
+          <a href="#services" class="btn-outline"><i class="fas fa-stethoscope"></i> Explore Services</a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="image1.png" alt="Dr. Om Prakash Yadav" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;">
-        <p style="margin-top: 0.5rem; font-weight:500;">Dr. Om Prakash Yadav</p>
+        <img src="image1.png" alt="Dr. Om Prakash Yadav" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+        <p style="margin-top: 0.8rem; font-weight:500;">Dr. Om Prakash Yadav</p>
         <span style="font-size:0.8rem;">MBBS</span>
       </div>
     </div>
   </section>
 
-  <!-- About + Education / Experience -->
+  <!-- About + Credentials (Clinical Profile) - Enhanced readability and alignment -->
   <section id="about">
     <div class="section-title">
       <i class="fas fa-id-card"></i> <span>Clinical Profile</span>
@@ -464,37 +677,37 @@
     <div class="two-col">
       <div class="info-card">
         <h3><i class="fas fa-user-md"></i> About Me</h3>
-        <p>Dr. Om Prakash Yadav is a board-certified internal medicine physician with over a decade of experience in managing complex medical conditions. She believes in building long-term relationships with patients, focusing on preventive care and lifestyle modifications. Fluent in English, Hindi, and regional languages, she ensures personalized communication.</p>
-        <p style="margin-top:1rem;">Active member of the American College of Physicians and Indian Medical Association. Published research in leading medical journals on hypertension and diabetes management.</p>
+        <p>Dr. Om Prakash Yadav is a board-certified internal medicine physician with over 2+ years of dedicated experience in managing complex medical conditions. He believes in building long-term relationships with patients, focusing on preventive care and lifestyle modifications. Fluent in English, Hindi, and Nepali, he ensures personalized communication.</p>
+        <p style="margin-top: 1rem;">Active member of the American College of Physicians and Indian Medical Association. Published research in leading medical journals on hypertension and diabetes management.</p>
       </div>
       <div class="info-card">
         <h3><i class="fas fa-graduation-cap"></i> Education & Credentials</h3>
         <div class="timeline-item">
           <div class="timeline-year">MBBS</div>
-          <p>Birat Medical College | 2026</p>
+          <p>Birat Medical College, Nepal | 2022</p>
         </div>
         <div class="timeline-item">
-          <div class="timeline-year">MD </div>
-          <p>All India Institute of Medical Sciences (AIIMS), New Delhi | 2028</p>
+          <div class="timeline-year">MD (Internal Medicine)</div>
+          <p>All India Institute of Medical Sciences (AIIMS), New Delhi | 2026</p>
         </div>
         <div class="timeline-item">
           <div class="timeline-year">Fellowship in Cardiology (Observership)</div>
-          <p>Birat Medical College, Biratnagar  | 2025</p>
+          <p>Birat Medical College, Biratnagar | 2026</p>
         </div>
-        <h3 style="margin-top: 1.2rem;"><i class="fas fa-briefcase"></i> Clinical Experience</h3>
+        <h3 style="margin-top: 1.2rem; font-size: 1.3rem;"><i class="fas fa-briefcase"></i> Clinical Experience</h3>
         <div class="timeline-item">
-          <div class="timeline-year">Attending Doctor</div>
-          <p>Birat Medical College, Biratnagar (2026–Present)</p>
+          <div class="timeline-year">Attending Physician</div>
+          <p>Birat Medical College, Biratnagar (2026 – Present)</p>
         </div>
         <div class="timeline-item">
-          <div class="timeline-year">Attending Doctor</div>
-          <p>Birat Medical College, Biratnagar (2024–2026)</p>
+          <div class="timeline-year">Resident Doctor</div>
+          <p>Birat Medical College (2024 – 2026)</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Specialized Medical Services -->
   <section id="services">
     <div class="section-title">
       <i class="fas fa-heartbeat"></i> <span>Specialized Medical Services</span>
@@ -503,61 +716,61 @@
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
         <h3>General Consultation</h3>
-        <p>Comprehensive health check-ups, diagnosis, and treatment plans for acute & chronic illnesses.</p>
+        <p>Comprehensive check-ups, diagnosis & treatment plans for acute and chronic illnesses.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="service-icon"><i class="fas fa-shield-virus"></i></div>
         <h3>Preventive Care</h3>
-        <p>Vaccinations, annual wellness exams, lifestyle coaching and early detection screenings.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-lungs"></i></div>
-        <h3>Respiratory & Cardiac Health</h3>
-        <p>Management of asthma, COPD, hypertension, and preventive cardiology guidance.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-diagnoses"></i></div>
-        <h3>Diabetes & Thyroid Care</h3>
-        <p>Evidence-based endocrine management with continuous monitoring & dietary support.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-telegram-plane"></i></div>
-        <h3>Telemedicine Sessions</h3>
-        <p>Virtual follow-ups and remote consultations for non-emergency conditions.</p>
+        <p>Vaccinations, annual wellness exams, lifestyle coaching, early detection screenings.</p>
       </div>
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-syringe"></i></div>
         <h3>Travel Medicine & Immunization</h3>
         <p>Pre-travel health advice, required vaccinations, and post-travel screenings.</p>
       </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-charging-station"></i></div>
+        <h3>Diabetes & Thyroid Care</h3>
+        <p>Evidence-based endocrine management, continuous monitoring & dietary support.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-laptop-medical"></i></div>
+        <h3>Telemedicine Sessions</h3>
+        <p>Virtual follow-ups & remote consultations for non-emergency conditions.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-lungs"></i></div>
+        <h3>Pediatric & Cardiac Care</h3>
+        <p>Management of asthma, COPD, hypertension, and preventive cardiology guidance.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- Patient Stories (Testimonials) -->
   <section id="testimonials">
     <div class="section-title">
       <i class="fas fa-comment-medical"></i> <span>Patient Stories</span>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card">
-        <i class="fas fa-quote-left" style="color: var(--secondary); font-size:1.5rem; opacity:0.5;"></i>
-        <p style="margin:1rem 0;">"Dr. Aadhya is an incredible doctor. She listened to all my concerns and explained my condition with patience. Her treatment plan worked wonders for my blood pressure."</p>
+        <i class="fas fa-quote-left" style="color: var(--secondary); font-size: 1.6rem; opacity: 0.5;"></i>
+        <p style="margin: 1rem 0;">"Dr. Om Prakash Yadav is an incredible doctor. He listened to all my concerns and explained my condition with patience. His treatment plan worked wonders for my blood pressure."</p>
         <div><strong>— Bikash S.</strong> <span style="color: gray;">| Hypertension patient</span></div>
       </div>
       <div class="testimonial-card">
-        <i class="fas fa-quote-left" style="color: var(--secondary); font-size:1.5rem; opacity:0.5;"></i>
-        <p style="margin:1rem 0;">"I've been her patient for 3 years now. Very thorough and compassionate. The telemedicine follow-ups are super convenient."</p>
+        <i class="fas fa-quote-left" style="color: var(--secondary); font-size: 1.6rem; opacity: 0.5;"></i>
+        <p style="margin: 1rem 0;">"I've been his patient for 2 years now. Very thorough and compassionate. The telemedicine follow-ups are super convenient."</p>
         <div><strong>— Abishek J.</strong> <span style="color: gray;">| Diabetes management</span></div>
       </div>
       <div class="testimonial-card">
-        <i class="fas fa-quote-left" style="color: var(--secondary); font-size:1.5rem; opacity:0.5;"></i>
-        <p style="margin:1rem 0;">"Highly recommend Dr. Sharma. She took time to understand my family history and created a preventive health plan. The clinic staff is also very supportive."</p>
+        <i class="fas fa-quote-left" style="color: var(--secondary); font-size: 1.6rem; opacity: 0.5;"></i>
+        <p style="margin: 1rem 0;">"Highly recommend Dr. Yadav. He took time to understand my family history and created a preventive health plan. The clinic staff is also very supportive."</p>
         <div><strong>— Manisha Y.</strong> <span style="color: gray;">| Preventive checkup</span></div>
       </div>
     </div>
   </section>
 
-  <!-- Contact + Appointment (Schedule a Visit with suggestion) -->
+  <!-- Contact + Appointment - improved alignment -->
   <section id="contact">
     <div class="section-title">
       <i class="fas fa-calendar-check"></i> <span>Schedule for Consultation</span>
@@ -565,181 +778,165 @@
     <div class="contact-section">
       <div class="contact-details">
         <h3><i class="fas fa-map-marker-alt"></i> Contact</h3>
-        <p><i class="fas fa-building"></i> Birat Medical College, Biratnagar, Koshi Pradesh, Nepal</p>
-        <p><i class="fas fa-phone-alt"></i> +977 1234567890</p>
-        <p><i class="fas fa-envelope"></i> dr.om@example.com</p>
-        <p><i class="fas fa-clock"></i> Sun – Fri: 10:00 AM – 5:00 PM | Saturday: Emergency Only</p>
-      <div style="margin-top:1rem;">
-        <a href="https://www.instagram.com/omprakashydv124" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-          <i class="fab fa-instagram"></i>
-        </a>
-
-        <a href="https://www.facebook.com/om.prakash.yadav.182604" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-          <i class="fab fa-facebook"></i>
-        </a>
-
-        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-
-        &nbsp; Connect on health platforms
-      </div>
-        <!-- suggestion note inside contact details -->
+        <div class="contact-info-item">
+          <i class="fas fa-building"></i>
+          <div class="contact-text">Birat Medical College, Biratnagar, Koshi Pradesh, Nepal</div>
+        </div>
+        <div class="contact-info-item">
+          <i class="fas fa-phone-alt"></i>
+          <div class="contact-text"><a href="tel:+9779812345678" target="_blank" style="color:#084c66; text-decoration:none;">+977 9812345678</a></div>
+        </div>
+        <div class="contact-info-item">
+          <i class="fas fa-envelope"></i>
+          <div class="contact-text"><a href="mailto:contact@omyadav.com.np" target="_blank" style="color:#084c66; text-decoration:none;">contact@omyadav.com.np</a></div>
+        </div>
+        <div class="contact-info-item">
+          <i class="fas fa-clock"></i>
+          <div class="contact-text">Sun – Fri: 10:00 AM – 5:00 PM | Sat: Emergency Only</div>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/omprakashydv124" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/om.prakash.yadav.182604" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://wa.me/" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
         <div class="suggestion-note">
-          <i class="fas fa-lightbulb" style="color: var(--primary);"></i>
+          <i class="fas fa-lightbulb"></i>
           <span><strong>Pro tip:</strong> For same-day consultations, please call directly. Online requests are confirmed within few hours.</span>
         </div>
       </div>
       <div class="appointment">
-        <h3><i class="fas fa-notes-medical"></i> Request an Consultation</h3>
+        <h3><i class="fas fa-notes-medical"></i> Request a Consultation</h3>
         <form id="appointmentForm">
-          <input type="text" id="fullName" placeholder="Full Name" required>
+          <input type="text" id="fullName" placeholder="Full Name *" required>
           <input type="tel" id="phone" placeholder="Phone Number">
           <input type="email" id="email" placeholder="Email">
           <textarea id="reason" rows="2" placeholder="Brief reason for visit (e.g., fever, BP checkup)"></textarea>
-          <button type="button" id="sendRequestBtn" class="btn-primary" style="width:100%; justify-content:center;">
+          <button type="button" id="sendRequestBtn" class="btn-primary" style="width:100%; justify-content:center; margin-top: 0.5rem;">
             <i class="fas fa-paper-plane"></i> Send Request
           </button>
         </form>
-        <div class="suggestion-note" style="margin-top: 1rem; background: #e6f0f5;">
+        <div class="suggestion-note" style="margin-top: 1rem;">
           <i class="fas fa-info-circle"></i>
           <span>We prioritize your health — your request will be reviewed by our medical team.</span>
         </div>
       </div>
     </div>
   </section>
+</main>
 
-  <!-- Footer section  -->
 <footer>
   <i class="fas fa-copyright"></i> 2026 Dr. Om Prakash Yadav — MBBS | Compassionate, evidence-based care for every life stage. <br>
   <span style="font-size:0.8rem;">📍 Serving patients in Biratnagar & telemedicine nationwide | Emergency? Please contact nearest hospital.</span>
-  <div style="margin-top: 1rem; font-size: 0.85rem; color: #2c5a72;">
-    Made with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <a href="https://bikashkumarsah.com.np" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 500;">Bikash</a>
+  <div style="margin-top: 1rem; font-size: 0.85rem;">
+    Made with <i class="fas fa-heart" style="color: #e74c3c;"></i> by <a href="https://bikashkumarsah.com.np" target="_blank" style="color:#084c66; text-decoration:none;">
+    Bikash
+  </a>
   </div>
 </footer>
-</div>
 
-<!-- Modern Toast Notification (Bottom) -->
+<!-- Toast Notification -->
 <div id="toast-message">
   <i class="fas fa-check-circle"></i> <span id="toast-text">Request sent! We'll contact you soon.</span>
 </div>
 
-<!-- Back to Top Button -->
-<button id="backToTopBtn" class="back-to-top" title="Back to Top">
+<button id="backToTopBtn" class="back-to-top" title="Back to top">
   <i class="fas fa-arrow-up"></i>
 </button>
 
 <script>
+  // Logo click to scroll home
+  const logo = document.getElementById('homeLogo');
+  if(logo) {
+    logo.addEventListener('click', () => {
+      document.getElementById('home').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 
-  // Logo click to scroll to home
-    const homeLogo = document.getElementById('homeLogo');
-    if (homeLogo) {
-      homeLogo.addEventListener('click', () => {
-        const heroSection = document.getElementById('home');
-        if (heroSection) {
-          heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    }
-
-  // Smooth scrolling + active nav highlight
+  // Active nav highlight & smooth scroll (CSS scroll-margin prevents hiding)
   const navLinks = document.querySelectorAll('.nav-links a');
   const sections = document.querySelectorAll('section');
-
   function updateActiveSection() {
-    let current = '';
-    const scrollPosition = window.scrollY + 120;
+    let currentId = '';
+    const scrollPos = window.scrollY + 100;
     sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionBottom = sectionTop + section.offsetHeight;
-      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-        current = section.getAttribute('id');
+      const top = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+      if(scrollPos >= top && scrollPos < bottom) {
+        currentId = section.getAttribute('id');
       }
     });
     navLinks.forEach(link => {
       link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
+      if(link.getAttribute('href') === `#${currentId}`) {
         link.classList.add('active');
       }
     });
   }
-
   window.addEventListener('scroll', updateActiveSection);
   window.addEventListener('load', updateActiveSection);
-
-  navLinks.forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
       e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
-      const target = document.getElementById(targetId);
-      if(target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const targetId = link.getAttribute('href').substring(1);
+      const targetElem = document.getElementById(targetId);
+      if(targetElem) {
+        targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
         history.pushState(null, null, `#${targetId}`);
       }
-      // update active manually
-      navLinks.forEach(link => link.classList.remove('active'));
-      this.classList.add('active');
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
     });
   });
 
-  // ----- MODERN TOAST (bottom alert) -----
+  // Toast function
   function showToast(message, isError = false) {
     const toast = document.getElementById('toast-message');
     const toastText = document.getElementById('toast-text');
     toastText.innerHTML = message;
-    if (isError) {
-      toast.style.backgroundColor = "#b13e3e";
-      toast.style.background = "rgba(177, 62, 62, 0.95)";
+    if(isError) {
+      toast.style.background = "rgba(177, 62, 62, 0.96)";
     } else {
-      toast.style.backgroundColor = "#0b5e7e";
-      toast.style.background = "rgba(11, 94, 126, 0.95)";
+      toast.style.background = "rgba(11, 94, 126, 0.96)";
     }
     toast.classList.add('show');
     setTimeout(() => {
       toast.classList.remove('show');
-      // reset color after 2 sec (optional)
       setTimeout(() => {
-        toast.style.backgroundColor = "#0b5e7e";
-        toast.style.background = "rgba(11, 94, 126, 0.95)";
+        toast.style.background = "rgba(11, 94, 126, 0.96)";
       }, 300);
     }, 3000);
   }
 
-  // handle send request with validation and bottom toast
+  // Appointment form handler
   const sendBtn = document.getElementById('sendRequestBtn');
-  if (sendBtn) {
-    sendBtn.addEventListener('click', function(e) {
+  if(sendBtn) {
+    sendBtn.addEventListener('click', () => {
       const nameInput = document.getElementById('fullName');
       const name = nameInput ? nameInput.value.trim() : '';
-      if (name === '') {
+      if(name === '') {
         showToast('⚠️ Please enter your full name.', true);
         return;
       }
-      // optional: you can add email validation, but we keep it demo-friendly
-      showToast(`✨ Thank you ${name}! Your appointment request has been received. Dr. Aadhya's office will reach out shortly.`, false);
-      // Optionally reset form
+      showToast(`✨ Thank you ${name}! Your appointment request has been received. Dr. Om Prakash Yadav's office will reach out shortly.`, false);
       document.getElementById('appointmentForm').reset();
     });
   }
 
-  // add a small demo for any external link (clinic call suggestion)
-  console.log("Doctor portfolio ready — toast notifications active at bottom.");
-
-  // Back to Top Button Logic
-    const backBtn = document.getElementById('backToTopBtn');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        backBtn.classList.add('show');
-      } else {
-        backBtn.classList.remove('show');
-      }
-    });
-    if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+  // Back to top button
+  const backBtn = document.getElementById('backToTopBtn');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 400) {
+      backBtn.classList.add('show');
+    } else {
+      backBtn.classList.remove('show');
     }
-
+  });
+  if(backBtn) {
+    backBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 </script>
 </body>
 </html>
